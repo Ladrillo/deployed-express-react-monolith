@@ -8,6 +8,9 @@ function App() {
 
   useEffect(() => {
     axios.get('/api/friends')
+      .then(res => {
+        setData(res.data);
+      })
   }, []);
 
   return (
