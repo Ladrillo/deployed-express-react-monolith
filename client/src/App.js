@@ -21,6 +21,7 @@ function App() {
           {
             data && data[0].name
           }
+          GAGAGAGAGAAG
         </p>
         <a
           className="App-link"
