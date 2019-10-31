@@ -3,11 +3,16 @@ import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
 
+const baseUrl = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:4000'
+  : ''
+
 function App() {
+  console.log(process.env.NODE_ENV)
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    axios.get('/api/friends')
+    axios.get(baseUrl + '/api/friends')
       .then(res => {
         setData(res.data);
       })
