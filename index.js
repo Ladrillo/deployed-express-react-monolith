@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 4400;
 
 const friends = [
   { id: 1, name: 'Shaun' },
@@ -15,10 +15,6 @@ const friends = [
 app.use(express.static(__dirname + '/client/build'))
 app.use(express.json());
 app.use(cors());
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/build/index.html')
-});
 
 app.get('/api/friends', (req, res) => {
   res.json(friends);
